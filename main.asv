@@ -137,14 +137,14 @@ for i=1:numel(current_label)
             lie_to_sit_z = cat(1, lie_to_sit_z, data(labels(current_label(i),4): labels(current_label(i),5),3));   
         
         case 11 %{'S\_lay'}
-            stand_to_lie_x = cat(1, stand_to_lie_x, data(labels(current_label(i),4): labels(current_label(i),5),1));
-            stand_to_lie_y = cat(1, stand_to_lie_y, data(labels(current_label(i),4): labels(current_label(i),5),2));
-            stand_to_lie_z = cat(1, stand_to_lie_z, data(labels(current_label(i),4): labels(current_label(i),5),3));
+            walking_x = cat(1, walking_x, data(labels(current_label(i),4): labels(current_label(i),5),1));
+            walking_y = cat(1, walking_y, data(labels(current_label(i),4): labels(current_label(i),5),2));
+            walking_z = cat(1, walking_z, data(labels(current_label(i),4): labels(current_label(i),5),3));
         
         case 12%{'L\_STAND'}
-            lie_to_stand_x = cat(1, lie_to_stand_x, data(labels(current_label(i),4): labels(current_label(i),5),1));
-            lie_to_stand_y = cat(1, lie_to_stand_y, data(labels(current_label(i),4): labels(current_label(i),5),2));
-            lie_to_stand_z = cat(1, lie_to_stand_z, data(labels(current_label(i),4): labels(current_label(i),5),3));
+            walking_x = cat(1, walking_x, data(labels(current_label(i),4): labels(current_label(i),5),1));
+            walking_y = cat(1, walking_y, data(labels(current_label(i),4): labels(current_label(i),5),2));
+            walking_z = cat(1, walking_z, data(labels(current_label(i),4): labels(current_label(i),5),3));
             
     end    
 end
