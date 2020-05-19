@@ -64,7 +64,8 @@ stand_to_lie_z = [];
 lie_to_stand_x = [];
 lie_to_stand_y = [];
 lie_to_stand_z = [];
-%% Plot Data
+% Plot Data
+figure(1)
 for i=1:eixos
         subplot(eixos, 1, i); 
         plot(t./60, data(:, i), 'k--')
@@ -82,7 +83,7 @@ for i=1:eixos
             text(t(labels(current_label(j), 4))/60, ypos, activities{labels(current_label(j), 3)});
         end
 end
-%% Join activities
+%% Create windows to apply dft
 for i=1:numel(current_label)
     activity = labels((current_label(i)),3);
     switch(activity)
@@ -148,3 +149,16 @@ for i=1:numel(current_label)
             
     end    
 end
+%% DRAW WINDOWS DFT
+walking_steps = drawDft(walking_x, walking_y, walking_z, 2, 'WALKING');
+walking_upstairs_steps = drawDft(walking_upstairs_x, walking_upstairs_y, walking_upstairs_z, 3, 'WALKING UPSTAIRS');
+walking_downstairs_steps = drawDft(walking_downstairs_x, walking_downstairs_y, walking_downstairs_z, 4, 'WALKING DOWNSTAIRS');
+sitting_steps = drawDft(sitting_x, sitting_y, sitting_z, 5, 'SITTING');
+standing_steps = drawDft(standing_x, standing_y, standing_z, 6, 'STANDING');
+laying_steps = drawDft(laying_x, laying_y, laying_z, 7, 'LAYING');
+stand_to_sit_steps = drawDft(stand_to_sit_x, stand_to_sit_y, stand_to_sit_z, 8, 'STAND TO SIT');
+sit_to_stand_steps = drawDft( sit_to_stand_x,  sit_to_stand_y,  sit_to_stand_z, 9, 'SIT TO STAND');
+sit_to_lie_steps = drawDft(sit_to_lie_x, sit_to_lie_y, sit_to_lie_z, 10, 'SIT TO LIE');
+lie_to_sit_steps = drawDft(lie_to_sit_x, lie_to_sit_y, lie_to_sit_z, 11, 'LIE TO SIT');
+stand_to_lie_steps = drawDft(stand_to_lie_x, stand_to_lie_y, stand_to_lie_z, 12, 'STAND TO LIE');
+
