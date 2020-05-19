@@ -150,15 +150,22 @@ for i=1:numel(current_label)
     end    
 end
 %% DRAW WINDOWS DFT
-walking_steps = drawDft(walking_x, walking_y, walking_z, 2, 'WALKING');
-walking_upstairs_steps = drawDft(walking_upstairs_x, walking_upstairs_y, walking_upstairs_z, 3, 'WALKING UPSTAIRS');
-walking_downstairs_steps = drawDft(walking_downstairs_x, walking_downstairs_y, walking_downstairs_z, 4, 'WALKING DOWNSTAIRS');
-sitting_steps = drawDft(sitting_x, sitting_y, sitting_z, 5, 'SITTING');
-standing_steps = drawDft(standing_x, standing_y, standing_z, 6, 'STANDING');
-laying_steps = drawDft(laying_x, laying_y, laying_z, 7, 'LAYING');
-stand_to_sit_steps = drawDft(stand_to_sit_x, stand_to_sit_y, stand_to_sit_z, 8, 'STAND TO SIT');
-sit_to_stand_steps = drawDft( sit_to_stand_x,  sit_to_stand_y,  sit_to_stand_z, 9, 'SIT TO STAND');
-sit_to_lie_steps = drawDft(sit_to_lie_x, sit_to_lie_y, sit_to_lie_z, 10, 'SIT TO LIE');
-lie_to_sit_steps = drawDft(lie_to_sit_x, lie_to_sit_y, lie_to_sit_z, 11, 'LIE TO SIT');
-stand_to_lie_steps = drawDft(stand_to_lie_x, stand_to_lie_y, stand_to_lie_z, 12, 'STAND TO LIE');
+% drawDft(walking_x, walking_y, walking_z, 2, 'WALKING');
+% drawDft(walking_upstairs_x, walking_upstairs_y, walking_upstairs_z, 3, 'WALKING UPSTAIRS');
+% drawDft(walking_downstairs_x, walking_downstairs_y, walking_downstairs_z, 4, 'WALKING DOWNSTAIRS');
+% drawDft(sitting_x, sitting_y, sitting_z, 5, 'SITTING');
+% drawDft(standing_x, standing_y, standing_z, 6, 'STANDING');
+% drawDft(laying_x, laying_y, laying_z, 7, 'LAYING');
+% drawDft(stand_to_sit_x, stand_to_sit_y, stand_to_sit_z, 8, 'STAND TO SIT');
+% drawDft( sit_to_stand_x,  sit_to_stand_y,  sit_to_stand_z, 9, 'SIT TO STAND');
+% drawDft(sit_to_lie_x, sit_to_lie_y, sit_to_lie_z, 10, 'SIT TO LIE');
+% drawDft(lie_to_sit_x, lie_to_sit_y, lie_to_sit_z, 11, 'LIE TO SIT');
+% drawDft(stand_to_lie_x, stand_to_lie_y, stand_to_lie_z, 12, 'STAND TO LIE');
+%% GET STEPS
+% getSteps(walking_x, walking_y, walking_z);
+% getSteps(walking_upstairs_x, walking_upstairs_y, walking_upstairs_z);
+% getSteps(walking_downstairs_x, walking_downstairs_y, walking_downstairs_z);
+%% PLOT 3D
+plot3d(walking_x, walking_y, walking_z, 13);
+
 
