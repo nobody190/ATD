@@ -8,6 +8,16 @@ function [steps] = drawDft(array_x,array_y, array_z, figure_num, activitie_name)
     else
         f = -Fs/2+Fs/(2*N):Fs/N:Fs/2-Fs/(2*N);
     end
+    %DFT RECTANGULAR WINDOW
+    dft_x = fftshift(fft(detrend(array_x)));
+    m_x = abs(dft_x); 
+
+    dft_y = fftshift(fft(detrend(array_y)));
+    m_y = abs(dft_y); 
+    
+    dft_z = fftshift(fft(detrend(array_z)));
+    m_z = abs(dft_z); 
+    
     %BLACKMAN WINDOWS
     black_win_x = blackman(numel(array_x));
     dft_black_x = fftshift(fft(detrend(array_x).*black_win_x));
@@ -59,33 +69,36 @@ function [steps] = drawDft(array_x,array_y, array_z, figure_num, activitie_name)
     ylabel('Amplitude')
     title(activitie_name)
     subplot(2, 2, 2)
-    p1 = plot(f,m_black_x, 'r'); hold on;
+    p0 = plot(f,m_x, 'y');hold on;
+    p1 = plot(f,m_black_x, 'r'); 
     p2 = plot(f,m_hamm_x, 'b');
     p3 = plot(f,m_hann_x, 'g'); hold off;
     title('|DFT| WINDOWS X');
     ylabel('Magnitude = |X|')
     xlabel('f [Hz]')
-    legend([p1; p2; p3], 'BLACKMAN', 'HAMMING', 'HANNING');
+    legend([p0; p1; p2; p3], 'RECTANGULAR', 'BLACKMAN', 'HAMMING', 'HANNING');
     axis tight
 
     subplot(2, 2, 3)
-    p1 = plot(f,m_black_y, 'r'); hold on;
+    p0 = plot(f,m_y, 'y'); hold on;
+    p1 = plot(f,m_black_y, 'r');
     p2 = plot(f,m_hamm_y, 'b');
     p3 = plot(f,m_hann_y, 'g'); hold off;
     title('|DFT| WINDOWS Y');
     ylabel('Magnitude = |X|')
     xlabel('f [Hz]')
-    legend([p1; p2; p3], 'BLACKMAN', 'HAMMING', 'HANNING');
+    legend([p0; p1; p2; p3], 'RECTANGULAR', 'BLACKMAN', 'HAMMING', 'HANNING');
     axis tight
 
     subplot(2, 2, 4)
-    p1 = plot(f,m_black_z, 'r'); hold on;
+    p0 = plot(f,m_z, 'y');hold on;
+    p1 = plot(f,m_black_z, 'r');
     p2 = plot(f,m_hamm_z, 'b');
     p3 = plot(f,m_hann_z, 'g'); hold off;
     title('|DFT| WINDOWS Z');
     ylabel('Magnitude = |X|')
     xlabel('f [Hz]')
-    legend([p1; p2; p3], 'BLACKMAN', 'HAMMING', 'HANNING');
+    legend([p0; p1; p2; p3], 'RECTANGULAR', 'BLACKMAN', 'HAMMING', 'HANNING');
     axis tight
 end
 
