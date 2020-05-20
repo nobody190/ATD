@@ -227,6 +227,11 @@ steps_sit_stand = DftTimeFrequency(sit_to_stand_z, 23, 'SIT TO STAND');
 steps_sit_lie = DftTimeFrequency(sit_to_lie_z, 24, 'SIT TO LIE');
 steps_lie_sit = DftTimeFrequency(lie_to_sit_z, 25, 'LIE TO SIT');
 steps_stand_lie = DftTimeFrequency(stand_to_lie_z, 26, 'STAND TO LIE');
+
+array = cat(1,walking_z,walking_upstairs_z,walking_downstairs_z,sitting_z,laying_z,stand_to_sit_z,sit_to_stand_z,sit_to_lie_z,lie_to_sit_z,stand_to_lie_z);
+steps_z = DftTimeFrequency(array,27,'ALL Z');
+legend('W', 'W\_U', 'W\_D', 'SIT', 'STAND', 'LAY', 'S\_SIT', 'S\_STAND', 'S\_lay', 'L\_SIT', 'S\_lay', 'L\_STAND')
+
 hold off;
 
 'W', 'W\_U', 'W\_D', 'SIT', 'STAND', 'LAY', 'S\_SIT', 'S\_STAND', 'S\_lay', 'L\_SIT', 'S\_lay', 'L\_STAND'
