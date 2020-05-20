@@ -214,4 +214,19 @@ plot3dEnergy(lie_to_stand_x, lie_to_stand_y, lie_to_stand_z, '*');
 legend('WALKING','WALKING UPSTAIRS', 'WALKING DOWNSTAIRS', 'SITTING ', 'STANDING', 'LAYING','STAND_TO_SIT','SIT_TO_STAND','SIT_TO_LIE','LIE_TO_SIT','STAND_TO_LIE','LIE_TO_STAND');
 hold off;
 
+%% DISTRIBUICAO TEMPO-FREQUENCIA
+figure(16)
+steps_w = DftTimeFrequency(walking_z, 16, 'WALKING_Z');
+steps_w_u = DftTimeFrequency(walking_upstairs_z, 17, 'WALKING UPSTAIRS');
+steps_w_d = DftTimeFrequency(walking_downstairs_z, 18, 'WALKING DOWNSTAIRS');
+steps_sit = DftTimeFrequency(sitting_z, 19, 'SITTING');
+steps_stand = DftTimeFrequency(standing_z, 20, 'STANDING');
+steps_lay = DftTimeFrequency(laying_z, 21, 'LAYING');
+steps_stand_sit = DftTimeFrequency(stand_to_sit_z, 22, 'STAND TO SIT');
+steps_sit_stand = DftTimeFrequency(sit_to_stand_z, 23, 'SIT TO STAND');
+steps_sit_lie = DftTimeFrequency(sit_to_lie_z, 24, 'SIT TO LIE');
+steps_lie_sit = DftTimeFrequency(lie_to_sit_z, 25, 'LIE TO SIT');
+steps_stand_lie = DftTimeFrequency(stand_to_lie_z, 26, 'STAND TO LIE');
+hold off;
 
+'W', 'W\_U', 'W\_D', 'SIT', 'STAND', 'LAY', 'S\_SIT', 'S\_STAND', 'S\_lay', 'L\_SIT', 'S\_lay', 'L\_STAND'
