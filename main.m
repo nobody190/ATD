@@ -1,5 +1,5 @@
 %% Load Files
-data = importfile("acc_exp51_user25.txt");
+data = importfile("acc_exp53_user26.txt");
 labels = importlabel("labels.txt");
 activities = {'W', 'W\_U', 'W\_D', 'SIT', 'STAND', 'LAY', 'S\_SIT', 'S\_STAND', 'S\_lay', 'L\_SIT', 'S\_lay', 'L\_STAND'};
 color = {'r'; 'b'; 'y'; 'w'; 'k'; 'g'; 'm'; 'c';'r'; 'b'; 'y'; 'w'; 'k'; 'g'; 'm'; 'c'};
@@ -150,22 +150,68 @@ for i=1:numel(current_label)
     end    
 end
 %% DRAW WINDOWS DFT
-% drawDft(walking_x, walking_y, walking_z, 2, 'WALKING');
-% drawDft(walking_upstairs_x, walking_upstairs_y, walking_upstairs_z, 3, 'WALKING UPSTAIRS');
-% drawDft(walking_downstairs_x, walking_downstairs_y, walking_downstairs_z, 4, 'WALKING DOWNSTAIRS');
-% drawDft(sitting_x, sitting_y, sitting_z, 5, 'SITTING');
-% drawDft(standing_x, standing_y, standing_z, 6, 'STANDING');
-% drawDft(laying_x, laying_y, laying_z, 7, 'LAYING');
-% drawDft(stand_to_sit_x, stand_to_sit_y, stand_to_sit_z, 8, 'STAND TO SIT');
-% drawDft( sit_to_stand_x,  sit_to_stand_y,  sit_to_stand_z, 9, 'SIT TO STAND');
-% drawDft(sit_to_lie_x, sit_to_lie_y, sit_to_lie_z, 10, 'SIT TO LIE');
-% drawDft(lie_to_sit_x, lie_to_sit_y, lie_to_sit_z, 11, 'LIE TO SIT');
-% drawDft(stand_to_lie_x, stand_to_lie_y, stand_to_lie_z, 12, 'STAND TO LIE');
+drawDft(walking_x, walking_y, walking_z, 2, 'WALKING');
+drawDft(walking_upstairs_x, walking_upstairs_y, walking_upstairs_z, 3, 'WALKING UPSTAIRS');
+drawDft(walking_downstairs_x, walking_downstairs_y, walking_downstairs_z, 4, 'WALKING DOWNSTAIRS');
+drawDft(sitting_x, sitting_y, sitting_z, 5, 'SITTING');
+drawDft(standing_x, standing_y, standing_z, 6, 'STANDING');
+drawDft(laying_x, laying_y, laying_z, 7, 'LAYING');
+drawDft(stand_to_sit_x, stand_to_sit_y, stand_to_sit_z, 8, 'STAND TO SIT');
+drawDft( sit_to_stand_x,  sit_to_stand_y,  sit_to_stand_z, 9, 'SIT TO STAND');
+drawDft(sit_to_lie_x, sit_to_lie_y, sit_to_lie_z, 10, 'SIT TO LIE');
+drawDft(lie_to_sit_x, lie_to_sit_y, lie_to_sit_z, 11, 'LIE TO SIT');
+drawDft(stand_to_lie_x, stand_to_lie_y, stand_to_lie_z, 12, 'STAND TO LIE');
 %% GET STEPS
-% getSteps(walking_x, walking_y, walking_z);
-% getSteps(walking_upstairs_x, walking_upstairs_y, walking_upstairs_z);
-% getSteps(walking_downstairs_x, walking_downstairs_y, walking_downstairs_z);
-%% PLOT 3D
-plot3d(walking_x, walking_y, walking_z, 13);
+getSteps(walking_x, walking_y, walking_z);
+getSteps(walking_upstairs_x, walking_upstairs_y, walking_upstairs_z);
+getSteps(walking_downstairs_x, walking_downstairs_y, walking_downstairs_z);
+%% FIRST PEAK FREQUENCY
+figure(13)
+plot3dPeaks(walking_x, walking_y, walking_z, 'o');
+plot3dPeaks(walking_upstairs_x, walking_upstairs_y, walking_upstairs_z, 'o');
+plot3dPeaks(walking_downstairs_x, walking_downstairs_y, walking_downstairs_z, 'o');
+plot3dPeaks(sitting_x, sitting_y, sitting_z, 'x');
+plot3dPeaks(standing_x, standing_y, standing_z, 'x');
+plot3dPeaks(laying_x, laying_y, laying_z, 'x');
+plot3dPeaks(stand_to_sit_x, stand_to_sit_y, stand_to_sit_z, '*');
+plot3dPeaks(sit_to_stand_x, sit_to_stand_y, sit_to_stand_z, '*');
+plot3dPeaks(sit_to_lie_x, sit_to_lie_y, sit_to_lie_z, '*');
+plot3dPeaks(lie_to_sit_x, lie_to_sit_y, lie_to_sit_z, '*');
+plot3dPeaks(stand_to_lie_x, stand_to_lie_y, stand_to_lie_z, '*');
+plot3dPeaks(lie_to_stand_x, lie_to_stand_y, lie_to_stand_z, '*');
+legend('WALKING','WALKING UPSTAIRS', 'WALKING DOWNSTAIRS', 'SITTING ', 'STANDING', 'LAYING','STAND_TO_SIT','SIT_TO_STAND','SIT_TO_LIE','LIE_TO_SIT','STAND_TO_LIE','LIE_TO_STAND');
+hold off;
+%% POTÊNCIAS DAS ATIVIDADES
+figure(14)
+plot3dPotency(walking_x, walking_y, walking_z, 'o');
+plot3dPotency(walking_upstairs_x, walking_upstairs_y, walking_upstairs_z, 'o');
+plot3dPotency(walking_downstairs_x, walking_downstairs_y, walking_downstairs_z, 'o');
+plot3dPotency(sitting_x, sitting_y, sitting_z, 'x');
+plot3dPotency(standing_x, standing_y, standing_z, 'x');
+plot3dPotency(laying_x, laying_y, laying_z, 'x');
+plot3dPotency(stand_to_sit_x, stand_to_sit_y, stand_to_sit_z, '*');
+plot3dPotency(sit_to_stand_x, sit_to_stand_y, sit_to_stand_z, '*');
+plot3dPotency(sit_to_lie_x, sit_to_lie_y, sit_to_lie_z, '*');
+plot3dPotency(lie_to_sit_x, lie_to_sit_y, lie_to_sit_z, '*');
+plot3dPotency(stand_to_lie_x, stand_to_lie_y, stand_to_lie_z, '*');
+plot3dPotency(lie_to_stand_x, lie_to_stand_y, lie_to_stand_z, '*');
+legend('WALKING','WALKING UPSTAIRS', 'WALKING DOWNSTAIRS', 'SITTING ', 'STANDING', 'LAYING','STAND_TO_SIT','SIT_TO_STAND','SIT_TO_LIE','LIE_TO_SIT','STAND_TO_LIE','LIE_TO_STAND');
+hold off;
+%% ENERGIA DAS ATIVIDADES
+figure(15)
+plot3dEnergy(walking_x, walking_y, walking_z, 'o');
+plot3dEnergy(walking_upstairs_x, walking_upstairs_y, walking_upstairs_z, 'o');
+plot3dEnergy(walking_downstairs_x, walking_downstairs_y, walking_downstairs_z, 'o');
+plot3dEnergy(sitting_x, sitting_y, sitting_z, 'x');
+plot3dEnergy(standing_x, standing_y, standing_z, 'x');
+plot3dEnergy(laying_x, laying_y, laying_z, 'x');
+plot3dEnergy(stand_to_sit_x, stand_to_sit_y, stand_to_sit_z, '*');
+plot3dEnergy(sit_to_stand_x, sit_to_stand_y, sit_to_stand_z, '*');
+plot3dEnergy(sit_to_lie_x, sit_to_lie_y, sit_to_lie_z, '*');
+plot3dEnergy(lie_to_sit_x, lie_to_sit_y, lie_to_sit_z, '*');
+plot3dEnergy(stand_to_lie_x, stand_to_lie_y, stand_to_lie_z, '*');
+plot3dEnergy(lie_to_stand_x, lie_to_stand_y, lie_to_stand_z, '*');
+legend('WALKING','WALKING UPSTAIRS', 'WALKING DOWNSTAIRS', 'SITTING ', 'STANDING', 'LAYING','STAND_TO_SIT','SIT_TO_STAND','SIT_TO_LIE','LIE_TO_SIT','STAND_TO_LIE','LIE_TO_STAND');
+hold off;
 
 
